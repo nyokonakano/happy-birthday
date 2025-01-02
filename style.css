@@ -1,13 +1,13 @@
 #envelope {
     position: relative;
-    width: 400px; /* Aumentado */
-    height: 250px; /* Aumentado */
+    width: 400px;
+    height: 250px;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     margin-left: auto;
     margin-right: auto;
     top: 150px;
-    background-color: #d9534f; /* Warm romantic red */
+    background-color: #d9534f;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
   
@@ -19,19 +19,19 @@
   }
   
   .flap {
-    border-left: 200px solid transparent; /* Aumentado */
-    border-right: 200px solid transparent; /* Aumentado */
-    border-bottom: 120px solid transparent; /* Aumentado */
-    border-top: 140px solid #d9534f; /* Aumentado */
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 120px solid transparent;
+    border-top: 140px solid #d9534f;
     transform-origin: top;
     pointer-events: none;
   }
   
   .pocket {
-    border-left: 200px solid #f5a3a2; /* Aumentado */
-    border-right: 200px solid #f5a3a2; /* Aumentado */
-    border-bottom: 130px solid #ff6f61; /* Aumentado */
-    border-top: 130px solid transparent; /* Aumentado */
+    border-left: 200px solid #f5a3a2;
+    border-right: 200px solid #f5a3a2;
+    border-bottom: 130px solid #ff6f61;
+    border-top: 130px solid transparent;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
   }
@@ -63,39 +63,39 @@
     left: 10%;
     width: 80%;
     height: 14%;
-    background-color: #ffe6e6; /* Light romantic tone */
+    background-color: #ffe6e6;
   }
   
   .words.line1 {
-    top: 7%; /* Ajustado */
-    font-size: 1rem;/* Aumentado */
+    top: 7%;
+    font-size: 1rem;
     width: 20%;
     height: 7%;
     font-size: 1rem; 
   }
   
   .words.line2 {
-    top: 20%; /* Ajustado */
+    top: 20%;
     text-align: center;
-    font-size: 1.5rem; /* Aumentado */
+    font-size: 1.5rem;
   }
   
   .words.line3 {
-    top: 38%; /* Ajustado */
+    top: 38%;
     text-align: center;
-    font-size: 1.5rem; /* Aumentado */
+    font-size: 1.5rem;
   }
   
   .words.line4 {
-    top: 56%; /* Ajustado */
+    top: 56%;
     text-align: center;
-    font-size: 1.5rem; /* Aumentado */
+    font-size: 1.5rem;
   }
 
   .words.line5 {
-    top: 75%; /* Nueva línea */
+    top: 75%;
     text-align: center;
-    font-size: 1.5rem; /* Aumentado */
+    font-size: 1.5rem;
   }
   
   .open .flap {
@@ -117,14 +117,14 @@
   }
   
   .open .letter {
-    transform: translateY(-150px); /* Ajustado */
+    transform: translateY(-150px);
     transition: transform 0.4s 0.6s ease, z-index 0.6s;
     z-index: 2;
   }
   
   .hearts {
     position: absolute;
-    top: 120px; /* Ajustado */
+    top: 120px;
     left: 0;
     right: 0;
     z-index: 2;
