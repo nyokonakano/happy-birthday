@@ -1,0 +1,306 @@
+#envelope {
+    /* Define el tamaño, la posición y el estilo del contenedor del sobre */
+    position: relative; /* Posiciona el sobre en relación a su contenedor */
+    width: 400px; /* Ancho del sobre */
+    height: 250px; /* Altura del sobre */
+    border-bottom-left-radius: 6px; /* Redondea la esquina inferior izquierda */
+    border-bottom-right-radius: 6px; /* Redondea la esquina inferior derecha */
+    margin-left: auto; /* Centra el sobre horizontalmente */
+    margin-right: auto; /* Centra el sobre horizontalmente */
+    top: 150px; /* Espaciado superior */
+    background-color: #d9534f; /* Color de fondo del sobre */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto 3D */
+}
+
+.front {
+    /* Definición de elementos decorativos en la parte frontal del sobre */
+    position: absolute; /* Posición absoluta en relación al contenedor */
+    width: 0; /* Ancho inicial */
+    height: 0; /* Altura inicial */
+    z-index: 3; /* Asegura que esté en el frente */
+}
+
+.flap {
+    /* Estilo de la solapa del sobre */
+    border-left: 200px solid transparent; /* Borde izquierdo transparente */
+    border-right: 200px solid transparent; /* Borde derecho transparente */
+    border-bottom: 120px solid transparent; /* Borde inferior transparente */
+    border-top: 140px solid #d9534f; /* Borde superior con color */
+    transform-origin: top; /* Define el eje de transformación */
+    pointer-events: none; /* Desactiva la interacción con el mouse */
+}
+
+.pocket {
+    /* Define el bolsillo del sobre */
+    border-left: 200px solid #f5a3a2; /* Borde izquierdo del bolsillo */
+    border-right: 200px solid #f5a3a2; /* Borde derecho del bolsillo */
+    border-bottom: 130px solid #ff6f61; /* Borde inferior con color */
+    border-top: 130px solid transparent; /* Borde superior transparente */
+    border-bottom-left-radius: 6px; /* Redondea la esquina inferior izquierda */
+    border-bottom-right-radius: 6px; /* Redondea la esquina inferior derecha */
+}
+
+.letter {
+    /* Estilo de la carta dentro del sobre */
+    position: relative; /* Posición relativa al contenedor */
+    background-color: #fff; /* Color de fondo blanco */
+    width: 90%; /* Ancho relativo al sobre */
+    margin-left: auto; /* Centra horizontalmente */
+    margin-right: auto; /* Centra horizontalmente */
+    height: 90%; /* Altura relativa al sobre */
+    top: 5%; /* Espaciado superior */
+    border-radius: 6px; /* Bordes redondeados */
+    box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12); /* Sombra para efecto 3D */
+    font-family: "Dancing Script", cursive; /* Fuente decorativa */
+}
+
+.letter:after {
+    /* Elemento decorativo adicional dentro de la carta */
+    content: ""; /* Contenido vacío */
+    position: absolute; /* Posición absoluta en relación a la carta */
+    top: 0; /* Alineado en la parte superior */
+    bottom: 0; /* Alineado en la parte inferior */
+    left: 0; /* Alineado a la izquierda */
+    right: 0; /* Alineado a la derecha */
+}
+
+.words {
+    /* Estilo de los bloques de texto dentro de la carta */
+    position: absolute; /* Posición absoluta dentro de la carta */
+    left: 10%; /* Margen izquierdo */
+    width: 80%; /* Ancho del bloque de texto */
+    height: 14%; /* Altura del bloque de texto */
+    background-color: #ffe6e6; /* Color de fondo del bloque */
+}
+
+.words.line1 {
+    /* Estilo de la primera línea de texto */
+    top: 7%; /* Posición vertical desde arriba */
+    font-size: 1rem; /* Tamaño de fuente */
+    width: 20%; /* Ancho relativo */
+    height: 7%; /* Altura del bloque */
+}
+
+.words.line2 {
+    /* Estilo de la segunda línea de texto */
+    top: 20%; /* Posición vertical desde arriba */
+    text-align: center; /* Alineación centrada */
+    font-size: 1.5rem; /* Tamaño de fuente */
+}
+
+.words.line3 {
+    /* Estilo de la tercera línea de texto */
+    top: 38%; /* Posición vertical desde arriba */
+    text-align: center; /* Alineación centrada */
+    font-size: 1.5rem; /* Tamaño de fuente */
+}
+
+.words.line4 {
+    /* Estilo de la cuarta línea de texto */
+    top: 56%; /* Posición vertical desde arriba */
+    text-align: center; /* Alineación centrada */
+    font-size: 1.5rem; /* Tamaño de fuente */
+}
+
+.words.line5 {
+    /* Estilo de la quinta línea de texto */
+    top: 75%; /* Posición vertical desde arriba */
+    text-align: center; /* Alineación centrada */
+    font-size: 1.5rem; /* Tamaño de fuente */
+}
+
+.open .flap {
+    /* Animación para abrir la solapa del sobre */
+    transform: rotateX(180deg); /* Rotación de la solapa */
+    transition: transform 0.4s ease, z-index 0.6s; /* Transiciones de transformación */
+    z-index: 1; /* Coloca la solapa detrás */
+}
+
+.close .flap {
+    /* Animación para cerrar la solapa del sobre */
+    transform: rotateX(0deg); /* Rotación de la solapa */
+    transition: transform 0.4s 0.6s ease, z-index 1s; /* Transiciones de transformación */
+    z-index: 5; /* Coloca la solapa delante */
+}
+
+.close .letter {
+    /* Posición de la carta cuando el sobre está cerrado */
+    transform: translateY(0px); /* Sin movimiento vertical */
+    transition: transform 0.4s ease, z-index 1s; /* Transiciones de transformación */
+    z-index: 1; /* Nivel de la carta */
+}
+
+.open .letter {
+    /* Posición de la carta cuando el sobre está abierto */
+    transform: translateY(-150px); /* Movimiento vertical hacia arriba */
+    transition: transform 0.4s 0.6s ease, z-index 0.6s; /* Transiciones de transformación */
+    z-index: 2; /* Nivel de la carta */
+}
+
+.hearts {
+    /* Contenedor para los corazones animados */
+    position: absolute; /* Posición absoluta en relación al sobre */
+    top: 120px; /* Posición vertical desde arriba */
+    left: 0; /* Alineado a la izquierda */
+    right: 0; /* Alineado a la derecha */
+    z-index: 2; /* Nivel de los corazones */
+}
+
+.heart {
+    /* Estilo de los corazones individuales */
+    position: absolute; /* Posición absoluta dentro del contenedor */
+    bottom: 0; /* Alineado al fondo */
+    right: 10%; /* Margen derecho */
+    pointer-events: none; /* Sin interacción con el mouse */
+}
+
+.heart:before,
+.heart:after {
+    /* Forma de los corazones */
+    position: absolute; /* Posición absoluta en relación al corazón */
+    content: ""; /* Contenido vacío para el diseño */
+    left: 50px; /* Posición desde la izquierda */
+    top: 0; /* Alineado en la parte superior */
+    width: 50px; /* Ancho del corazón */
+    height: 80px; /* Altura del corazón */
+    background: #e60073; /* Color del corazón */
+    border-radius: 50px 50px 0 0; /* Bordes redondeados para dar forma */
+    transform: rotate(-45deg); /* Rotación para formar la mitad del corazón */
+    transform-origin: 0 100%; /* Eje de transformación */
+    pointer-events: none; /* Sin interacción con el mouse */
+}
+
+.heart:after {
+    /* Ajusta la otra mitad del corazón */
+    left: 0; /* Posición desde la izquierda */
+    transform: rotate(45deg); /* Rotación para completar el corazón */
+    transform-origin: 100% 100%; /* Eje de transformación */
+}
+
+.close .heart {
+    /* Oculta los corazones cuando el sobre está cerrado */
+    opacity: 0; /* Corazones invisibles */
+    -webkit-animation: none; /* Sin animación en navegadores WebKit */
+    animation: none; /* Sin animación */
+}
+
+.a1 {
+    /* Configuración de animación para el corazón 1 */
+    left: 20%; /* Posición desde la izquierda */
+    transform: scale(0.6); /* Escala más pequeña */
+    opacity: 1; /* Totalmente visible */
+    -webkit-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate; /* Animaciones */
+    -moz-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate; /* Animaciones en Firefox */
+    -webkit-animation-fill-mode: forwards; /* Mantener estado final en navegadores WebKit */
+    animation-fill-mode: forwards; /* Mantener estado final */
+    -webkit-animation-delay: 0.7s; /* Retraso de inicio en navegadores WebKit */
+    animation-delay: 0.7s; /* Retraso de inicio */
+}
+
+.a2 {
+    /* Configuración de animación para el corazón 2 */
+    left: 55%; /* Posición desde la izquierda */
+    transform: scale(1); /* Tamaño normal */
+    opacity: 1; /* Totalmente visible */
+    -webkit-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate; /* Animaciones */
+    -moz-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate; /* Animaciones en Firefox */
+    -webkit-animation-fill-mode: forwards; /* Mantener estado final en navegadores WebKit */
+    animation-fill-mode: forwards; /* Mantener estado final */
+    -webkit-animation-delay: 0.7s; /* Retraso de inicio en navegadores WebKit */
+    animation-delay: 0.7s; /* Retraso de inicio */
+}
+
+.a3 {
+    /* Configuración de animación para el corazón 3 */
+    left: 10%; /* Posición desde la izquierda */
+    transform: scale(0.8); /* Tamaño medio */
+    opacity: 1; /* Totalmente visible */
+    -webkit-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate; /* Animaciones */
+    -moz-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate; /* Animaciones en Firefox */
+    -webkit-animation-fill-mode: forwards; /* Mantener estado final en navegadores WebKit */
+    animation-fill-mode: forwards; /* Mantener estado final */
+    -webkit-animation-delay: 0.7s; /* Retraso de inicio en navegadores WebKit */
+    animation-delay: 0.7s; /* Retraso de inicio */
+}
+
+@-webkit-keyframes slideUp {
+    /* Animación para mover los corazones hacia arriba */
+    0% {
+        top: 0; /* Posición inicial en la parte inferior */
+    }
+    100% {
+        top: -600px; /* Posición final fuera de la pantalla */
+    }
+}
+
+@keyframes slideUp {
+    /* Animación para mover los corazones hacia arriba */
+    0% {
+        top: 0; /* Posición inicial en la parte inferior */
+    }
+    100% {
+        top: -600px; /* Posición final fuera de la pantalla */
+    }
+}
+
+@-webkit-keyframes sideSway {
+    /* Animación para el movimiento lateral */
+    0% {
+        margin-left: 0px; /* Sin desplazamiento lateral */
+    }
+    100% {
+        margin-left: 50px; /* Desplazamiento lateral */
+    }
+}
+
+@keyframes sideSway {
+    /* Animación para el movimiento lateral */
+    0% {
+        margin-left: 0px; /* Sin desplazamiento lateral */
+    }
+    100% {
+        margin-left: 50px; /* Desplazamiento lateral */
+    }
+}
+
+body {
+    /* Establece el color de fondo de la página */
+    background-color: #f0e6f6; /* Color de fondo */
+}
+
+.envlope-wrapper {
+    /* Define el tamaño del contenedor del sobre */
+    height: 500px; /* Altura del contenedor */
+}
+
+.reset {
+    /* Estilo del contenedor del botón de reinicio */
+    text-align: center; /* Centra el botón */
+}
+
+.reset button {
+    /* Estilo para el botón de reinicio */
+    font-weight: 800; /* Negrita en el texto */
+    font-style: normal; /* Estilo normal */
+    transition: all 0.1s linear; /* Transición para efectos visuales */
+    -webkit-appearance: none; /* Elimina estilo por defecto en navegadores WebKit */
+    background-color: transparent; /* Fondo transparente */
+    border: solid 2px #d9534f; /* Borde rojo */
+    border-radius: 4px; /* Bordes redondeados */
+    color: #d9534f; /* Color del texto */
+    display: inline-block; /* Elemento en línea */
+    font-size: 14px; /* Tamaño de fuente */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    margin: 5px; /* Espaciado alrededor */
+    padding: 10px; /* Espaciado interno */
+    line-height: 1em; /* Altura de línea */
+    text-decoration: none; /* Sin subrayado */
+    min-width: 120px; /* Ancho mínimo */
+    cursor: pointer; /* Cursor de puntero */
+}
+
+.reset button:hover {
+    /* Efecto hover para el botón de reinicio */
+    background-color: #d9534f; /* Fondo rojo al pasar el mouse */
+    color: #fff; /* Texto blanco al pasar el mouse */
+}

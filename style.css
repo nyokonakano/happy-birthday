@@ -1,0 +1,139 @@
+* {
+    margin: 0; /* Elimina los márgenes predeterminados de todos los elementos. */
+    padding: 0; /* Elimina el padding predeterminado de todos los elementos. */
+    box-sizing: border-box; /* Incluye el borde y el padding en el cálculo del ancho/alto. */
+}
+
+body {
+    background: #1a1a1a; /* Establece un fondo oscuro para toda la página. */
+    min-height: 100vh; /* Asegura que el cuerpo tenga al menos la altura completa de la ventana. */
+    display: flex; /* Activa Flexbox para centrar el contenido dentro del cuerpo. */
+    justify-content: center; /* Centra el contenido horizontalmente. */
+    align-items: center; /* Centra el contenido verticalmente. */
+    font-family: 'Poppins', sans-serif; /* Establece la fuente principal de la página. */
+    overflow: hidden; /* Evita el scroll, útil para animaciones o efectos fijos. */
+    opacity: 0; /* Oculta inicialmente el cuerpo para hacer un efecto de aparición. */
+    transition: opacity 1s ease; /* Aplica una transición suave al cambio de opacidad. */
+}
+
+.container {
+    text-align: center; /* Centra el texto dentro del contenedor. */
+    color: white; /* Establece el color blanco para el texto. */
+    padding: 20px; /* Agrega espacio interno de 20px alrededor del contenido. */
+}
+
+.heart {
+    position: relative; /* Permite posicionar elementos hijos en relación a este elemento. */
+    width: 100px; /* Define un ancho fijo para el corazón. */
+    height: 100px; /* Define una altura fija para el corazón. */
+    margin: 30px auto; /* Centra el corazón horizontalmente y agrega un margen superior/inferior. */
+    animation: pulse 1.5s ease infinite; /* Aplica una animación de "latido" constante. */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* El corazón tiene su tamaño original al inicio de la animación. */
+    }
+    50% {
+        transform: scale(1.2); /* El corazón crece un 20% en el medio de la animación. */
+    }
+    100% {
+        transform: scale(1); /* El corazón vuelve a su tamaño original al final de la animación. */
+    }
+}
+
+.heart::before,
+.heart::after {
+    content: ''; /* Crea elementos pseudo que representan las mitades del corazón. */
+    position: absolute; /* Posiciona los pseudo-elementos en relación al corazón. */
+    width: 50px; /* Define el ancho de cada mitad del corazón. */
+    height: 80px; /* Define la altura de cada mitad del corazón. */
+    background: #FF3366; /* Usa un color rosa fuerte como fondo. */
+    border-radius: 50px 50px 0 0; /* Redondea las esquinas superiores para crear forma de círculo. */
+}
+
+.heart::before {
+    left: 50px; /* Mueve la mitad izquierda hacia la derecha. */
+    transform: rotate(-45deg); /* Rota esta mitad para formar el lado izquierdo del corazón. */
+    transform-origin: 0 100%; /* Define el punto de rotación en la esquina inferior izquierda. */
+}
+
+.heart::after {
+    left: 0; /* Coloca esta mitad en la posición inicial. */
+    transform: rotate(45deg); /* Rota esta mitad para formar el lado derecho del corazón. */
+    transform-origin: 100% 100%; /* Define el punto de rotación en la esquina inferior derecha. */
+}
+
+.message {
+    font-size: 2em; /* Establece un tamaño de fuente grande para el mensaje. */
+    opacity: 0; /* Oculta inicialmente el mensaje. */
+    transform: translateY(20px); /* Desplaza el mensaje hacia abajo inicialmente. */
+    animation: fadeIn 2s ease forwards 0.5s; /* Aplica una animación para hacer que el mensaje aparezca suavemente. */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Hace que el mensaje sea completamente visible al final de la animación. */
+        transform: translateY(0); /* Devuelve el mensaje a su posición original. */
+    }
+}
+
+.loading-dots {
+    margin: 20px 0; /* Agrega espacio vertical alrededor de los puntos de carga. */
+}
+
+.dot {
+    display: inline-block; /* Coloca los puntos en línea, uno al lado del otro. */
+    width: 10px; /* Define el ancho de cada punto. */
+    height: 10px; /* Define la altura de cada punto. */
+    margin: 0 5px; /* Agrega espacio horizontal entre los puntos. */
+    background: #FF3366; /* Usa un color rosa fuerte para los puntos. */
+    border-radius: 50%; /* Convierte los puntos en círculos. */
+    animation: loadingDots 1.4s infinite; /* Aplica una animación constante a los puntos. */
+}
+
+@keyframes loadingDots {
+    0%, 100% {
+        transform: scale(0.3); /* Reduce el tamaño de los puntos al inicio y al final. */
+        opacity: 0.3; /* Hace que los puntos sean menos visibles al inicio y al final. */
+    }
+    50% {
+        transform: scale(1); /* Aumenta el tamaño de los puntos a su escala normal en el medio. */
+        opacity: 1; /* Hace que los puntos sean completamente visibles en el medio. */
+    }
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s; /* Retrasa la animación del segundo punto. */
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s; /* Retrasa aún más la animación del tercer punto. */
+}
+
+.enter-button {
+    margin-top: 30px; /* Agrega espacio superior al botón. */
+    padding: 15px 40px; /* Define el espacio interno del botón. */
+    font-size: 1.2em; /* Establece un tamaño de fuente más grande para el texto del botón. */
+    background: #FF3366; /* Usa un color rosa fuerte como fondo del botón. */
+    color: white; /* Establece el color del texto en blanco. */
+    border: none; /* Elimina cualquier borde del botón. */
+    border-radius: 50px; /* Redondea los bordes del botón. */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón. */
+    transition: all 0.3s ease; /* Aplica una transición suave a todos los cambios de estilo. */
+    opacity: 0; /* Oculta inicialmente el botón. */
+    transform: translateY(20px); /* Desplaza el botón hacia abajo inicialmente. */
+    animation: fadeIn 2s ease forwards 1.5s; /* Aplica una animación para hacer que el botón aparezca suavemente. */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Hace que el botón sea completamente visible al final de la animación. */
+        transform: translateY(0); /* Devuelve el botón a su posición original. */
+    }
+}
+
+.enter-button:hover {
+    background: #ff4778; /* Cambia ligeramente el color del botón al pasar el cursor. */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón para un efecto de enfoque. */
+}

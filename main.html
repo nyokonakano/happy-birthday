@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <title>Happy Birthday</title>
+    <!-- Preconexión a Google Fonts para mejorar el rendimiento de carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Enlace a la fuente "Dancing Script" desde Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+    <!-- Contenedor principal del sobre -->
+    <div class="envlope-wrapper">
+        <!-- Div que representa el sobre con estado inicial cerrado -->
+        <div id="envelope" class="close">
+        <!-- Parte frontal del sobre (solapa) -->
+        <div class="front flap"></div>
+        <!-- Parte frontal del sobre (bolsillo) -->
+        <div class="front pocket"></div>
+        <!-- Carta dentro del sobre -->
+        <div class="letter">
+            <!-- Línea de texto en la carta -->
+            <div class="words line1">For: Andrea</div>
+            <div class="words line2">Cada año que pasa iluminas</div>
+            <div class="words line3">más el mundo con tu esencia.</div>
+            <div class="words line4">¡Feliz cumpleaños, alma hermosa!</div>
+            <div class="words line5">Con amor, Ademir</div>
+        </div>
+        <!-- Contenedor de corazones decorativos -->
+        <div class="hearts">
+            <div class="heart a1"></div>
+            <div class="heart a2"></div>
+            <div class="heart a3"></div>
+        </div>
+        </div>
+    </div>
+    <!-- Contenedor de botones para abrir y cerrar el sobre -->
+    <div class="reset">
+        <button id="open">Abrir</button> <!-- Botón para abrir el sobre -->
+        <button id="reset">Cerrar</button> <!-- Botón para cerrar el sobre -->
+    </div>
+
+    <!-- Inclusión de la librería jQuery desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    </body>
+</html>
